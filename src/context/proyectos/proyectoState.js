@@ -6,7 +6,15 @@ import proyectoReducer from './proyectoReducer'
 import {FORMULARIO_PROYECTO} from '../../types'
 
 const ProyectoState = props => {
+  
   const initialState = {
+    
+    proyectos : [
+      {id:1 ,nombre: 'Tienda virtual'},
+      {id:2 ,nombre: 'Intranet'},
+      {id:3 ,nombre: 'Diseño de Sitio'},
+      {id:4 ,nombre: 'Elegir ORM'}
+    ],
     formulario: false
   }
 
@@ -23,6 +31,7 @@ const ProyectoState = props => {
   return (
     <proyectoContext.Provider 
       value={{
+        proyectos: state.proyectos,
         formulario: state.formulario,
         mostrarFormulario
         }}>
