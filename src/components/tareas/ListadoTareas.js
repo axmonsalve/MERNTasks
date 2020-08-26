@@ -5,7 +5,7 @@ import proyectoContext from "../../context/proyectos/proyectoContext";
 function ListadoTareas() {
   //Obtener el state del formulario
   const proyectosContext = useContext(proyectoContext);
-  const { proyecto } = proyectosContext;
+  const { proyecto, eliminarProyecto } = proyectosContext;
 
   //Si no hay proyecto seleccionado
   if(!proyecto){
@@ -22,6 +22,10 @@ function ListadoTareas() {
     { nombre: "Elegir plataformas de pago", estado: true },
   ];
 
+  const onClickEliminar = () => {
+    eliminarProyecto(proyectoActual.id)
+  }
+
   return (
     <>
       <h2>Proyecto: {proyectoActual.nombre}</h2>
@@ -35,7 +39,7 @@ function ListadoTareas() {
         )}
       </ul>
 
-      <button className="btn btn-eliminar">Eliminar Proyecto &times;</button>
+      <button className="btn btn-eliminar" onClick={onClickEliminar}>Eliminar Proyecto &times;</button>
     </>
   );
 }
