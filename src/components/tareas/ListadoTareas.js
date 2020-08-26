@@ -15,12 +15,7 @@ function ListadoTareas() {
   //Extraer proyecto actual
   const [proyectoActual] = proyecto
 
-  const tareasProyecto = [
-    { nombre: "Elegir plataforma", estado: true },
-    { nombre: "Elegir colores", estado: false },
-    { nombre: "Elegir hosting", estado: false },
-    { nombre: "Elegir plataformas de pago", estado: true },
-  ];
+  const tareasProyecto = [];
 
   const onClickEliminar = () => {
     eliminarProyecto(proyectoActual.id)
