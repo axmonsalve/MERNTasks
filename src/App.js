@@ -12,10 +12,10 @@ function App() {
     <ProyectoState>
       <Router>
         <Switch>
-        </Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
           <Route exact path="/proyectos" component={Proyectos} />
+        </Switch>
       </Router>
     </ProyectoState>
   );

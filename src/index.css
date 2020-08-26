@@ -89,6 +89,9 @@ a {
 .btn-secundario {
   background-color: var(--gris1);
 }
+.btn-secundario:hover {
+  background-color: lightgray;
+}
 
 .btn-block {
   display: block;
