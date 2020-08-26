@@ -1,6 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import proyectoContext from '../../context/proyectos/proyectoContext'
 
 function NuevoProyecto() {
+
+  //Obtener el state del formulario
+  const proyectosContext = useContext(proyectoContext)
+  const {formulario} = proyectosContext
 
   const [proyecto, setProyecto] = useState({
     nombre: ''
@@ -34,13 +39,20 @@ function NuevoProyecto() {
       >Nuevo Proyecto
       </button>
 
-      <form
+      { formulario ?
+        (
+          <form
         className="formulario-nuevo-proyecto"
         onSubmit={onSubmitProyecto}
-      >
+          >
         <input type="text" className="input-text" value={nombre} name="nombre" placeholder="Nombre Proyecto" onChange={onChangeProyecto}/>
         <input type="submit" value="Agregar Proyecto" className="btn btn-primario btn-block"/>
-      </form>
+        </form>
+        ) :
+        null
+      }
+
+      
     </>
   )
 }
