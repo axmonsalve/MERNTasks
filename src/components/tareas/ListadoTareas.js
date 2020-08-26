@@ -24,6 +24,10 @@ function ListadoTareas() {
             ))
         }
       </ul>
+
+      <button
+      className="btn btn-eliminar"
+      >Eliminar Proyecto &times;</button>
     </>
   )
 }
