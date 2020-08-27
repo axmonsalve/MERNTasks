@@ -1,4 +1,4 @@
-import { TAREAS_PROYECTO, AGREGAR_TAREA } from "../../types";
+import { TAREAS_PROYECTO, AGREGAR_TAREA, VALIDAR_TAREA } from "../../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -10,7 +10,13 @@ export default (state, action) => {
     case AGREGAR_TAREA:
       return {
         ...state,
-        tareas: [...state.tareas, action.payload] //State de tareas que tenemos, mas la nueva
+        tareas: [...state.tareas, action.payload],//State de tareas que tenemos, mas la nueva
+        errortarea: false //Para quitar la alerta
+      }
+    case VALIDAR_TAREA:
+      return {
+        ...state,
+        errortarea: true
       }
     default:
       return state;

@@ -83,7 +83,7 @@ a {
 }
 
 .btn-primario:hover {
-  background: var(--gris3);
+  background: hsl(222, 18%, 26%);
 }
 
 .btn-secundario {
