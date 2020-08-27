@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Tarea from "./Tarea";
 import proyectoContext from "../../context/proyectos/proyectoContext";
-import tareaContext from '../../context/tareas/tareaContext'
+import tareaContext from "../../context/tareas/tareaContext";
 
 function ListadoTareas() {
   //Obtener el state del formulario
@@ -13,33 +13,34 @@ function ListadoTareas() {
   const { tareasproyecto } = tareasContext;
 
   //Si no hay proyecto seleccionado
-  if(!proyecto){
-    return <h2>Selecciona un proyecto</h2>
+  if (!proyecto) {
+    return <h2> Selecciona un proyecto </h2>;
   }
 
   //Extraer proyecto actual
-  const [proyectoActual] = proyecto
-
-
+  const [proyectoActual] = proyecto;
 
   const onClickEliminar = () => {
-    eliminarProyecto(proyectoActual.id)
-  }
+    eliminarProyecto(proyectoActual.id);
+  };
 
   return (
     <>
-      <h2>Proyecto: {proyectoActual.nombre}</h2>
+      <h2> Proyecto: {proyectoActual.nombre} </h2>{" "}
       <ul className="listado-tareas">
+        {" "}
         {tareasproyecto.length === 0 ? (
           <li className="tarea">
-            <p>No hay tareas</p>
+            <p> No hay tareas </p>{" "}
           </li>
         ) : (
-          tareasproyecto.map((tarea) => <Tarea tarea={tarea} />)
-        )}
+          tareasproyecto.map((tarea) => <Tarea key={tarea.id} tarea={tarea} />)
+        )}{" "}
       </ul>
-
-      <button className="btn btn-eliminar" onClick={onClickEliminar}>Eliminar Proyecto &times;</button>
+      <button className="btn btn-eliminar" onClick={onClickEliminar}>
+        {" "}
+        Eliminar Proyecto &times;{" "}
+      </button>{" "}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 
-import uuid from 'uuid'
+import uuid from "uuid";
 
 import proyectoContext from "./proyectoContext";
 import proyectoReducer from "./proyectoReducer";
@@ -10,7 +10,7 @@ import {
   AGREGAR_PROYECTO,
   VALIDAR_FORMULARIO,
   PROYECTO_ACTUAL,
-  ELIMINAR_PROYECTO
+  ELIMINAR_PROYECTO,
 } from "../../types";
 
 const ProyectoState = (props) => {
@@ -25,7 +25,7 @@ const ProyectoState = (props) => {
     proyectos: [],
     formulario: false,
     errorformulario: false,
-    proyecto: null
+    proyecto: null,
   };
 
   //Dispatch para ejecutar las acciones
@@ -47,37 +47,36 @@ const ProyectoState = (props) => {
   };
 
   //Agregar nuevo proyecto
-  const agregarProyecto = proyecto => {
-    proyecto.id = uuid.v4()
+  const agregarProyecto = (proyecto) => {
+    proyecto.id = uuid.v4();
     dispatch({
       type: AGREGAR_PROYECTO,
-      payload: proyecto
-    })
-  }
+      payload: proyecto,
+    });
+  };
 
   //Validar formulario por errores
   const mostrarError = () => {
     dispatch({
-      type: VALIDAR_FORMULARIO
-    })
-  }
+      type: VALIDAR_FORMULARIO,
+    });
+  };
 
   //Selecciona el proyecto que el user dio click
-  const proyectoActual = proyectoId => {
+  const proyectoActual = (proyectoId) => {
     dispatch({
       type: PROYECTO_ACTUAL,
-      payload: proyectoId
-    })
-  }
+      payload: proyectoId,
+    });
+  };
 
   //Eliminar el proyecto actual
-  const eliminarProyecto = proyectoId => {
+  const eliminarProyecto = (proyectoId) => {
     dispatch({
       type: ELIMINAR_PROYECTO,
-      payload: proyectoId
-    })
-  }
-
+      payload: proyectoId,
+    });
+  };
 
   return (
     <proyectoContext.Provider
@@ -91,7 +90,7 @@ const ProyectoState = (props) => {
         agregarProyecto,
         mostrarError,
         proyectoActual,
-        eliminarProyecto
+        eliminarProyecto,
       }}
     >
       {props.children}
