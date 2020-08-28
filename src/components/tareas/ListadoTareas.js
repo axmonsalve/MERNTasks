@@ -26,21 +26,21 @@ function ListadoTareas() {
 
   return (
     <>
-      <h2> Proyecto: {proyectoActual.nombre} </h2>{" "}
+      <h2> Proyecto: {proyectoActual.nombre} </h2>
       <ul className="listado-tareas">
-        {" "}
+        
         {tareasproyecto.length === 0 ? (
           <li className="tarea">
-            <p> No hay tareas </p>{" "}
+            <p> No hay tareas </p>
           </li>
         ) : (
           tareasproyecto.map((tarea) => <Tarea key={tarea.id} tarea={tarea} />)
-        )}{" "}
+        )}
       </ul>
       <button className="btn btn-eliminar" onClick={onClickEliminar}>
-        {" "}
-        Eliminar Proyecto &times;{" "}
-      </button>{" "}
+        
+        Eliminar Proyecto &times;
+      </button>
     </>
   );
 }
