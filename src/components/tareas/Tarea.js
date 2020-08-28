@@ -9,7 +9,7 @@ function Tarea({ tarea }) {
 
   //obtener las tareas del proyecto
   const tareasContext = useContext(tareaContext);
-  const { eliminarTarea, obtenerTareas, cambiarEstadoTarea } = tareasContext;
+  const { eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareasContext;
 
   const [proyectoActual] = proyecto;
 
@@ -28,6 +28,11 @@ function Tarea({ tarea }) {
     }
     cambiarEstadoTarea(tarea)
   };
+
+  //Agrega una tarea actual cuando el usuario desea editarla
+  const seleccionarTarea = tarea => {
+    guardarTareaActual(tarea)
+  }
 
   return (
     <li className="tarea sombra">
@@ -54,7 +59,7 @@ function Tarea({ tarea }) {
       </div>
 
       <div className="acciones">
-        <button type="button" className="btn btn-primario">
+        <button type="button" className="btn btn-primario" onClick={()=>seleccionarTarea(tarea)}>
           Editar
         </button>
         <button
