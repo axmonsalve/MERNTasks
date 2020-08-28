@@ -5,7 +5,8 @@ import {
   ELIMINAR_TAREA,
   ESTADO_TAREA,
   TAREA_ACTUAL,
-  ACTUALIZAR_TAREA
+  ACTUALIZAR_TAREA,
+  LIMPIAR_TAREA
 } from "../../types";
 
 export default (state, action) => {
@@ -20,7 +21,7 @@ export default (state, action) => {
     case AGREGAR_TAREA:
       return {
         ...state,
-        tareas: [...state.tareas, action.payload], //State de tareas que tenemos, mas la nueva
+        tareas: [action.payload, ...state.tareas], //State de tareas que tenemos, mas la nueva
         errortarea: false, //Para quitar la alerta
       };
     case VALIDAR_TAREA:
@@ -46,7 +47,11 @@ export default (state, action) => {
         ...state,
         tareaseleccionada: action.payload
       } 
-
+    case LIMPIAR_TAREA:
+      return {
+        ...state,
+        tareaseleccionada: null
+      }
     default:
       return state;
   }
